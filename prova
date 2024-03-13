@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+
+int main (){
+    FILE * arquivo;
+    int i, acertos = 0, erros = 0;;
+
+    arquivo = fopen("resultados.txt", "w");
+
+    for (i = 0; i < 5; i++){
+        srand(time(NULL));
+        int a = rand() %100, b = rand() %100, results;
+        
+        printf("Qual eh a soma de %d + %d\n", a, b);
+        int correto = a + b;
+
+        scanf("%d", &results);
+
+        fprintf(arquivo, "resposta %d: %d\n\n", i+1, correto);
+
+        if (results == correto)
+        {
+            printf("Parabens voce acertou! :)\n\n");
+            acertos++;
+        } else {
+            printf("Errou! A resposta era %d\n\n", correto);
+            erros++;
+        }
+        
+        
+    }
+
+    fprintf(arquivo, "Quantidades de acertos: %d\n\nQuantidade de erros: %d", acertos, erros); 
+
+    fclose(arquivo);
+
+    getch();
+    return 0;
+}
