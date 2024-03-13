@@ -1,0 +1,81 @@
+#include <stdint.h>
+
+int main() {
+    int cont, celsiusFor, celsius, fahrenheitFor, kelvinFor;
+    float fahrenheit, kelvin;
+
+    printf("Escolha qual temperatura quer converter:\n1 -> Celsius\n2 -> Fahrenheit\n3 -> Kelvin\n");
+    scanf("%d", &cont);
+
+    switch (cont){
+    case 1:
+        printf("\nEscolha como quer converter Celsius:\n1 -> Fahrenheit\n2 -> Kelvin\n\n");
+        scanf("%d", &celsiusFor);
+        switch (celsiusFor){
+            case 1:
+                printf("Graus em Celsius: ");
+                scanf("%d", &celsius);
+
+                float convertF = (celsius * 1.8) + 32;
+                printf("\n%d C = %.2f F", celsius, convertF);
+                break;
+            case 2:
+                printf("Graus em Celsius: ");
+                scanf("%d", &celsius);
+
+                float convertK = celsius + 273.15;
+                printf("\n%d C = %.2f K", celsius, convertK);
+                break;
+
+            default:
+                break;
+        }
+
+    case 2:
+        printf("Escolha como quer converter Fahrenheit:\n\n1 -> Celsius\n2 -> Kelvin\n");
+        scanf("%d", &fahrenheitFor);
+        switch (fahrenheitFor){
+            case 1:
+                printf("Graus em Fahrenheit: ");
+                scanf("%f", &fahrenheit);
+
+                float convertC = (fahrenheit - 32) * 1.8;
+                printf("\n%.2f F = %.1f C", fahrenheit, convertC);
+                break;
+            case 2:
+                printf("Graus em Fahrenheit: ");
+                scanf("%f", &fahrenheit);
+
+                float convertK = ((fahrenheit - 32) * 1.8) + 273.15;
+                printf("\n%.2f F = %.2f K", fahrenheit, convertK);
+                break;
+            default:
+                break;
+        }
+    
+    case 3:
+        printf("Escolha como quer converter Kelvin:\n\n1 -> Celsius\n2 -> Fahrenheit\n");
+        scanf("%d", &kelvinFor);
+        switch (kelvinFor){
+            case 1:
+                printf("Graus em Kelvin: ");
+                scanf("%f", &kelvin);
+
+                float convertC = kelvin - 273.15;
+                printf("\n%.2f K = %.1f C", kelvin, convertC);
+                break;
+            case 2:
+                printf("Graus em Kelvin: ");
+                scanf("%f", &kelvin);
+
+                float convertF =  ((kelvin - 273.15) * 1.8) + 32;
+                printf("\n%.2f K = %.2f F", kelvin, convertF);
+                break;
+            default:
+                break;
+        }
+
+    default:
+        break;
+    }
+}
