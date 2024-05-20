@@ -51,4 +51,5 @@ int main() {
     printf("Peek antes do pop: %d\n", Peek());
     Pop();
     printf("Peek depois do pop: %d\n", Peek());
+    free(array);
 }
