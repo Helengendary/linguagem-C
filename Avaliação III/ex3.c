@@ -55,4 +55,5 @@ int main() {
     printf("Primeiro antes do dequeeu: %d\n", VerificarPrimeiro());
     Dequeue();
     printf("Primeiro depois do dequeeu: %d\n", VerificarPrimeiro());
+    free(array);
 }
