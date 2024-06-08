@@ -59,6 +59,6 @@ int main() {
     Dequeue();
     
     Node *nao = head->next;
-    printf("%d\n", nao->value);
+    printf("\n\n%d\n", nao->value);
     printf("%d", tail->value);
 }

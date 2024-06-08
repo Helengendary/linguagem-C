@@ -7,8 +7,9 @@ typedef struct
     struct Node *next;
 } Node;
 
+Node *tail = NULL;
 Node *head = NULL;
-Node *current = NULL;
+int rodadas = 0;
 
 int size = 0;
 
@@ -17,41 +18,43 @@ void Enqueue(int value) {
     Node *node;
     node = malloc(sizeof(Node));
 
-    if (current == NULL)
+    if (rodadas == 0)
     {
-        head->value = NULL;
-        head->next = node;
         node->value = value;
         node->next = NULL;
+        head->next = node;
 
-        current = node;
+        tail = node;
         size++;
         return;
     }
     
-    current->next = node;
     node->value = value;
     node->next = NULL;
-    current = node;
+    tail->next = node;
+    tail = node;
     size++;
+    rodadas++;
+    free(node);
 }
 
 void Dequeue() {
 
-    Node *excluido = NULL;
-    excluido = head->next;
-    excluido = excluido->next; 
+    Node *next = head->next;
+    head->next = next->next;
     size--;
 }
 
 int main() {
-
-    Enqueue(1);
-    Enqueue(2);
+    
+    Enqueue(8);
     Enqueue(3);
-    Enqueue(4);
+    Enqueue(2);
     Enqueue(5);
 
-    printf("ffdhsda");
-
+    printf("%d", tail->value);
+    
+    Dequeue();
+    
+    printf("%d", tail->value);
 }
