@@ -7,9 +7,13 @@ typedef struct
     struct Node *next;
 } Node;
 
+typedef struct
+{
+    Node *next;
+} Head;
+
 Node *tail = NULL;
-Node *head = NULL;
-int rodadas = 0;
+Head *head = NULL;
 
 int size = 0;
 
@@ -18,7 +22,7 @@ void Enqueue(int value) {
     Node *node;
     node = malloc(sizeof(Node));
 
-    if (rodadas == 0)
+    if (head->next == NULL)
     {
         node->value = value;
         node->next = NULL;
@@ -34,7 +38,6 @@ void Enqueue(int value) {
     tail->next = node;
     tail = node;
     size++;
-    rodadas++;
     free(node);
 }
 
